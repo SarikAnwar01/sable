@@ -1,0 +1,12 @@
+{
+  "name": "sable",
+  "private": true,
+  "version": "0.0.1",
+  "description": "Sable — a fast, minimal, privacy-first browser",
+  "packageManager": "pnpm@11.2.2",
+  "scripts": {
+    "dev": "pnpm --filter @sable/desktop dev",
+    "build": "pnpm --filter @sable/desktop build",
+    "typecheck": "pnpm --filter @sable/desktop typecheck"
+  }
+}

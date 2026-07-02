@@ -1,0 +1,25 @@
+# Packaging config for Sable (used in M6 — not run yet).
+# `pnpm add -D electron-builder` then `electron-builder` to produce installers.
+appId: com.sarikanwar.sable
+productName: Sable
+directories:
+  buildResources: build
+  output: release
+files:
+  - out/**
+  - '!**/*.map'
+mac:
+  icon: build/icon.icns
+  category: public.app-category.productivity
+  target:
+    - dmg
+    - zip
+win:
+  icon: build/icon.png
+  target:
+    - nsis
+linux:
+  icon: build/icon.png
+  category: Network
+  target:
+    - AppImage

@@ -1,0 +1,67 @@
+/* Sable landing — brutalist-minimal, shared with the browser's design system. */
+:root {
+  --canvas: #0b0b0f;
+  --panel: #131318;
+  --fg: #e8e8ea;
+  --muted: #a1a1aa;
+  --subtle: #52525b;
+  --line: #23232a;
+  --accent: #00d17a;
+  --mono: ui-monospace, 'SF Mono', SFMono-Regular, Menlo, monospace;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body {
+  background: radial-gradient(1200px 600px at 50% -10%, #14181a 0%, var(--canvas) 60%);
+  color: var(--fg);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  line-height: 1.6;
+}
+.wrap { max-width: 720px; margin: 0 auto; padding: 0 24px; }
+
+header.site { display: flex; align-items: center; justify-content: space-between; padding: 28px 0; }
+.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+.brand .star { color: var(--accent); font-size: 15px; }
+.brand .name { font-family: var(--mono); font-size: 12px; letter-spacing: 0.28em; color: var(--fg); }
+nav.site a { color: var(--muted); font-size: 13px; text-decoration: none; margin-left: 22px; }
+nav.site a:hover { color: var(--fg); }
+
+.hero { text-align: center; padding: 72px 0 56px; }
+.hero .star { color: var(--accent); letter-spacing: 0.3em; font-size: 16px; margin-bottom: 14px; }
+.hero h1 {
+  font-size: 64px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
+  margin: 0 0 10px;
+}
+.hero h1 .dot { color: var(--accent); }
+.hero .tag { color: var(--muted); font-size: 16px; margin: 0 0 34px; }
+.cta { display: inline-block; background: var(--accent); color: #04120b; font-weight: 600;
+  padding: 13px 30px; border-radius: 12px; text-decoration: none; font-size: 15px; }
+.cta:hover { filter: brightness(1.08); }
+.cta-sub { display: block; margin-top: 12px; color: var(--subtle); font-size: 12px; }
+
+.features { border-top: 1px solid var(--line); padding: 48px 0 20px; }
+.feature { display: flex; gap: 18px; padding: 22px 0; border-bottom: 1px solid var(--line); }
+.feature .idx { font-family: var(--mono); font-size: 12px; color: var(--accent); padding-top: 3px; }
+.feature h3 { margin: 0 0 4px; font-size: 16px; font-weight: 600; }
+.feature p { margin: 0; color: var(--muted); font-size: 14px; }
+.feature kbd {
+  font-family: var(--mono); background: var(--panel); border: 1px solid var(--line);
+  border-radius: 5px; padding: 1px 6px; color: var(--muted); font-size: 11px;
+}
+
+footer.site {
+  display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px;
+  padding: 36px 0 44px; color: var(--subtle); font-size: 12px;
+}
+footer.site a { color: var(--muted); text-decoration: none; margin-right: 16px; }
+footer.site a:hover { color: var(--fg); }
+footer.site .mono { font-family: var(--mono); letter-spacing: 0.14em; }
+
+/* legal pages */
+.legal { padding: 24px 0 60px; }
+.legal h1 { font-size: 28px; margin: 18px 0 4px; }
+.legal .updated { font-family: var(--mono); font-size: 11px; color: var(--subtle); letter-spacing: 0.1em; }
+.legal h2 { font-size: 16px; margin: 30px 0 8px; display: flex; gap: 10px; align-items: baseline; }
+.legal h2 .idx { font-family: var(--mono); font-size: 11px; color: var(--accent); }
+.legal p, .legal li { color: var(--muted); font-size: 14px; }
+.legal a { color: var(--accent); text-decoration: none; }
