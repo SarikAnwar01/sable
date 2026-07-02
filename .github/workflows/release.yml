@@ -1,0 +1,39 @@
+name: Release desktop apps
+
+on:
+  push:
+    tags: ['v*']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: macos-latest
+            args: --mac
+          - os: windows-latest
+            args: --win
+    runs-on: ${{ matrix.os }}
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # Beta builds are unsigned; skip cert discovery so CI never stalls on it.
+      CSC_IDENTITY_AUTO_DISCOVERY: 'false'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 11
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm --filter @sable/desktop build
+      # electron-builder rebuilds native deps (better-sqlite3) for Electron,
+      # then publishes the installers to the GitHub Release for this tag.
+      - run: pnpm --filter @sable/desktop exec electron-builder ${{ matrix.args }} --publish always

@@ -1,5 +1,7 @@
-# Packaging config for Sable (used in M6 — not run yet).
-# `pnpm add -D electron-builder` then `electron-builder` to produce installers.
+# Packaging config for Sable.
+# Local: `pnpm --filter @sable/desktop exec electron-builder --mac --publish never`
+# CI: .github/workflows/release.yml builds mac+win on tag push and publishes
+# the installers to the GitHub Release (publish config below).
 appId: com.sarikanwar.sable
 productName: Sable
 directories:
@@ -7,7 +9,12 @@ directories:
   output: release
 files:
   - out/**
+  - build/icon.png
   - '!**/*.map'
+publish:
+  provider: github
+  owner: SarikAnwar01
+  repo: sable
 mac:
   icon: build/icon.icns
   category: public.app-category.productivity
@@ -18,6 +25,9 @@ win:
   icon: build/icon.png
   target:
     - nsis
+nsis:
+  oneClick: true
+  deleteAppDataOnUninstall: false
 linux:
   icon: build/icon.png
   category: Network
