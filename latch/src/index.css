@@ -1,0 +1,57 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-ink: #0b0f14;
+  --color-panel: #121820;
+  --color-edge: #1e2733;
+  --color-latch: #f2b544;
+  --color-latch-dim: #6b4f18;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  background: var(--color-ink);
+  color: #e6edf3;
+  font-family: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Passwords and SSIDs: unambiguous glyphs matter when someone types them by hand. */
+.mono {
+  font-family: ui-monospace, 'SF Mono', 'Cascadia Mono', Menlo, monospace;
+  font-variant-ligatures: none;
+}
+
+@media print {
+  @page {
+    margin: 10mm;
+  }
+
+  body {
+    background: #fff;
+    color: #000;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  .print-only {
+    display: block !important;
+  }
+
+  /* Never split a card across two sheets. */
+  .print-card {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+}
+
+.print-only {
+  display: none;
+}

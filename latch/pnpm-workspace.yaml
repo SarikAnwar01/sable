@@ -1,0 +1,7 @@
+# Latch is a standalone project. This empty workspace file makes latch/ its own
+# pnpm root so it does not join the parent repo's workspace — the whole
+# directory can be lifted into its own repo with `git subtree split`.
+packages: []
+
+onlyBuiltDependencies:
+  - esbuild
